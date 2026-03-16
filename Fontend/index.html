@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shop</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="page-shell">
+    <header class="hero">
+        <div>
+            <p class="eyebrow">Docker demo shop</p>
+            <h1>Web bán hàng đơn giản</h1>
+            <p class="hero-text">Frontend trong folder <code>Fontend</code>, gọi API backend qua <code>/api</code>.</p>
+        </div>
+        <button id="reloadBtn" class="secondary-btn" type="button">Tải lại sản phẩm</button>
+    </header>
+
+    <main class="layout">
+        <section class="panel products-panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Sản phẩm</h2>
+                    <p id="productSummary">Đang tải dữ liệu...</p>
+                </div>
+            </div>
+            <div id="loadingState" class="state-card">Đang tải danh sách sản phẩm...</div>
+            <div id="errorState" class="state-card hidden"></div>
+            <div id="productGrid" class="product-grid"></div>
+        </section>
+
+        <aside class="panel sidebar">
+            <section>
+                <div class="section-heading compact">
+                    <h2>Giỏ hàng</h2>
+                    <button id="clearCartBtn" class="ghost-btn" type="button">Xóa giỏ</button>
+                </div>
+                <div id="cartItems" class="cart-list empty">Chưa có sản phẩm nào trong giỏ.</div>
+                <div class="cart-summary">
+                    <div>
+                        <span>Tổng món</span>
+                        <strong id="cartCount">0</strong>
+                    </div>
+                    <div>
+                        <span>Tổng tiền</span>
+                        <strong id="cartTotal">0 đ</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="section-heading compact">
+                    <h2>Thông tin đặt hàng</h2>
+                </div>
+                <form id="checkoutForm" class="checkout-form">
+                    <label>
+                        <span>Họ tên khách hàng</span>
+                        <input id="customerName" name="customerName" type="text" placeholder="Nguyễn Văn A" required>
+                    </label>
+                    <label>
+                        <span>Số điện thoại</span>
+                        <input id="phone" name="phone" type="tel" placeholder="0900000000" required>
+                    </label>
+                    <label>
+                        <span>Địa chỉ</span>
+                        <textarea id="address" name="address" rows="3" placeholder="123 Đường ABC, Hà Nội" required></textarea>
+                    </label>
+                    <button id="submitOrderBtn" class="primary-btn" type="submit">Đặt hàng ngay</button>
+                </form>
+                <div id="messageBox" class="message-box hidden"></div>
+                <div id="orderResult" class="order-result hidden"></div>
+            </section>
+        </aside>
+    </main>
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>
